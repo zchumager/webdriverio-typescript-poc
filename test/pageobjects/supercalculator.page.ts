@@ -2,16 +2,13 @@ import { $ } from '@wdio/globals';
 import Page from './page.js';
 
 class SuperCalculatorPage extends Page{
-    private _firstInput: string = '[ng-model="first"]'
     private _goButton: string = '#gobutton'
-    private _operatorDropdown: string = '[ng-model="operator"]'
     private _resultContainer: string = `${this._goButton} + .ng-binding`
-    private _secondInput: string = '[ng-model="second"]'
     private _tableBody: string = ':has(>[ng-repeat="result in memory"])'
     private _url: string = 'https://juliemr.github.io/protractor-demo/'
 
     public get firstInput(){
-        return $(`${this._firstInput}`)
+        return $('[ng-model="first"]')
     }
 
     public get goButton() {
@@ -19,7 +16,7 @@ class SuperCalculatorPage extends Page{
     }
 
     public get operatorDropdown() {
-        return $(`${this._operatorDropdown}`)
+        return $('[ng-model="operator"]')
     }
 
     public get resultContainer() {
@@ -27,7 +24,7 @@ class SuperCalculatorPage extends Page{
     }
 
     public get secondInput() {
-        return $(`${this._secondInput}`)
+        return $('[ng-model="second"]')
     }
 
     private _buildRowHistorySelectorByIndex(rowIndex: number = 1) {
